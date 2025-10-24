@@ -1,0 +1,221 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #e8f5f3 0%, #f4f9f8 100%);
+  color: #333;
+}
+
+/* Split Layout */
+.homepage {
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+/* Left Side */
+.left-section {
+  flex: 1;
+  min-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffffda;
+  backdrop-filter: blur(6px);
+}
+
+.container {
+  width: 90%;
+  max-width: 480px;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+h1 {
+  font-weight: 700;
+  color: #176b5b;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Right Side */
+.right-section {
+  flex: 1;
+  background: linear-gradient(135deg, #d0f3ee, #b6e5dc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-img {
+  max-width: 85%;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+  border-radius: 20px;
+}
+
+/* Search & Dropdown */
+.search-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #9ad1c8;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #48a892;
+  box-shadow: 0 0 8px rgba(72, 168, 146, 0.3);
+  transform: scale(1.01);
+}
+
+/* Fade-in / Fade-out dropdown */
+.contact-list-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 10;
+}
+
+.contact-list-dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.contact-list-dropdown.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+}
+
+/* Scrollbar styling */
+.contact-list-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.contact-list-dropdown::-webkit-scrollbar-thumb {
+  background: #b2ddd4;
+  border-radius: 6px;
+}
+.contact-list-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #48a892;
+}
+
+/* Contact Card */
+.contact-card {
+  background: #fcd9c4;
+  padding: 16px 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.contact-card h3 {
+  margin: 0 0 8px 0;
+  color: #1f1f1f;
+  font-weight: 600;
+}
+.contact-card p {
+  margin: 3px 0;
+  color: #444;
+  font-size: 15px;
+}
+
+/* Form - vertical layout */
+.contact-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #b2ddd4;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-form input:focus {
+  border-color: #48a892;
+  box-shadow: 0 0 5px rgba(72, 168, 146, 0.3);
+}
+
+button {
+  width: 100%;
+  background: linear-gradient(90deg, #5abfa9, #48a892);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(90deg, #48a892, #3c9a83);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .homepage {
+    flex-direction: column;
+  }
+
+  .right-section {
+    order: -1;
+    padding: 20px 0;
+  }
+
+  .doctor-img {
+    max-width: 70%;
+  }
+
+  .container {
+    margin-top: 20px;
+    box-shadow: none;
+    border-radius: 12px;
+  }
+}
